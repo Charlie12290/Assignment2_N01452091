@@ -8,7 +8,14 @@ using System.Web.Http;
 namespace Assignment2_N01452091.Controllers
 {
     public class J1Controller : ApiController
-    {
+    {/// <summary>
+     /// Customer choose the meal options, calculate total calories.
+     /// </summary>
+     /// <param name="burger">Burger options and corresponding calories value</param>
+     /// <param name="drink">Drink options and corresponding calories value</param>
+     /// <param name="side">Side options and corresponding calories value</param>
+     /// <param name="dessert">Dessert options and corresponding calories value</param>
+     /// <returns>Total meal calories</returns>
         [HttpGet]
         [Route("api/J1/Menu/{burger}/{drink}/{side}/{dessert}")]
         public string Menu(int burger, int drink, int side, int dessert)
@@ -81,8 +88,10 @@ namespace Assignment2_N01452091.Controllers
             else if (dessert == 4)
             {
                 dscal = 0;
-            }            
+            }
+            //Total meal calories value
             int total = bcal + drcal + scal + dscal;
+            //Message to customer
             string response = "Your total calorie count is " + total;
             return response;
         }
